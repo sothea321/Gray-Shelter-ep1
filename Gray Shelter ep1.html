@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title></title>
+  
+
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+    .video-js .vjs-big-play-button {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .title-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .title-container h4 {
+      color: #fff;
+      font-family: 'Kantumruy Pro', sans-serif;
+      padding: 7px 15px;
+      font-size: 20px;
+    }
+
+
+  </style>
+   
+</head>
+<body>
+  <div class="container">
+    <!-- Video -->
+    <video id="my_video_1" class="video-js vjs-fluid vjs-default-skin" controls preload="auto" data-setup='{}' poster=="#"?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <source src="https://raw.githubusercontent.com/sothea321/Gray-Shelter/main/index.m3u8" type="application/x-mpegURL">
+      <track label="Khmer" kind="subtitles" srclang="km" src="https://raw.githubusercontent.com/sothea321/CC/main/%E1%9F%A1.km.srt" default>
+      <track label="English" kind="subtitles" srclang="en" src="https://raw.githubusercontent.com/sothea321/CC/main/%E1%9F%A1.en.srt">
+    </video>
+
+    <!-- Title -->
+    <div class="title-container">
+      <h4>PTPERSONAL</h4>
+    </div>
+  </div>
+  
+<script>
+    var title = document.querySelector('.title-container h4');
+    if(window.outerWidth < 585) {
+      title.style.fontSize = '12px';
+    }
+
+    if (window.outerWidth < 485) {
+      title.style.fontSize = '10px';
+    }
+
+    if (window.outerWidth < 385) {
+      title.style.fontSize = '8px';
+    }
+
+  var player = videojs('my_video_1', {autoplay: 'any'});
+  player.play();
+</script>
+  
+</body>
+</html>
